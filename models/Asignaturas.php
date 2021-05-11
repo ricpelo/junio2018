@@ -54,7 +54,16 @@ class Asignaturas extends \yii\db\ActiveRecord
      */
     public function getNotas()
     {
-        return $this->hasMany(Notas::class, ['asignaturas_id' => 'id'])
+        return $this->hasMany(Notas::class, ['asignatura_id' => 'id'])
             ->inverseOf('asignaturas');
+    }
+
+    public static function lista()
+    {
+        return static::find()
+            ->select('denominacion')
+            ->indexBy('id')
+            ->orderBy('denominacion')
+            ->column();
     }
 }
