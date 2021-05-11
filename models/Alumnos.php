@@ -51,6 +51,6 @@ class Alumnos extends \yii\db\ActiveRecord
     public function getNotas()
     {
         return $this->hasMany(Notas::class, ['alumno_id' => 'id'])
-            ->inverseOf('alumnos');
+            ->inverseOf('alumno');
     }
 }
